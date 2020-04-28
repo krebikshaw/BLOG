@@ -1,3 +1,5 @@
+================基本控制===============
+
 設定開始對某資料夾做版本控制
 => 先到達該資料夾的路徑  輸入: git init 
 
@@ -43,6 +45,9 @@
 將別條branch合併進來
 => git merge (branch_name)
 
+修改branch的名稱
+=> git branch -m (new_branch_name)
+
 
 =============GitHub============
 
@@ -58,6 +63,25 @@
 
 將雲端repo複製下來
 => git clone (網址)
+
+將雲端的branch複製下來
+=> git checkout (遠端的branch_name)
+
+=============其他==============
+
+當commit message寫錯需要更正時
+＝> git commit --amend (進入到vim去更正commit message)
+
+當commit後又後悔不想commit了
+=> git reset HEAD^ （--hard直接改回去上一次commit的內容 or --soft回到原本版本不動已修改的內容）
+=> git reset 流水號
+
+在commit前想復原修改過的檔案
+=> git checkout -- 檔名
+
+===========hook============
+鉤子，可預設在commit時會自動依照指示做判斷
+ex.內容有不合規範的指令，無法commit
 
 
 
