@@ -37,7 +37,7 @@
 => git branch (branch_name)
 
 刪除branch
-=> git -d (branch_name)
+=> git branch -d (branch_name)
 
 切換不同的branch
 => git checkout (branch_name)
