@@ -1,0 +1,64 @@
+設定開始對某資料夾做版本控制
+=> 先到達該資料夾的路徑  輸入: git init 
+
+查看版本狀態
+=> git status
+
+將檔案設定為要加入版本控制
+=> gut add 檔案名稱  或  git add .
+
+將檔案取消版本控制
+=> git rm --cached 檔案名稱
+
+建立一個新版本
+=> git commit -m "備註內容"
+
+查看版本紀錄
+=> git log
+
+查看先前版本(或編輯先前版本)
+=> git checkout 版本流水號
+
+從先前版本回到最新版本
+=> git checkout master
+
+將檔案設定成永遠不做版本控制
+=> touch .gitignore
+=> vim .gitignore    輸入檔名   存檔離開
+
+============Branch============
+
+查看目前有哪些branch
+=> git branch -v
+
+開一條新的branch
+=> git branch (branch_name)
+
+刪除branch
+=> git -d (branch_name)
+
+切換不同的branch
+=> git checkout (branch_name)
+
+將別條branch合併進來
+=> git merge (branch_name)
+
+
+=============GitHub============
+
+將檔案同步到雲端
+=> 先在GitHub新增一個new repo再依照說明將local端的資料夾連結
+
+將檔案push上雲端
+=> git push origin (branch_name)
+
+
+將雲端檔案pull下來
+=> git pull origin (branch_name)
+
+將雲端repo複製下來
+=> git clone (網址)
+
+
+
+
