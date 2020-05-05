@@ -5,6 +5,7 @@
 
 ## 學習規劃
 參考https://github.com/Lidemy/mentor-program-3rd 
+https://github.com/Lidemy/mentor-program-4th
 
 ### 暖身 (完成日期 2020/04/30)
 
@@ -126,15 +127,15 @@ Mindset 建立：
 
 #### 自我檢測
 
-- [ ] 你知道網路背後大概的運作模式
-- [ ] 你知道什麼是 Request 跟 Response
-- [ ] 你知道什麼是 DNS 以及運作原理
+- [x] 你知道網路背後大概的運作模式
+- [x] 你知道什麼是 Request 跟 Response
+- [x] 你知道什麼是 DNS 以及運作原理
 - [ ] 你知道 HTTP 與 HTTPS 的差異
 - [ ] 你知道 localhost 跟 127.0.0.1 是什麼
-- [ ] 你知道 GET 與 POST 的差別
+- [x] 你知道 GET 與 POST 的差別
 - [ ] 你知道常用的 HTTP Header
 - [ ] 你知道什麼是 API
-- [ ] 你會使用 node.js 寫出串接 API 的程式
+- [x] 你會使用 node.js 寫出串接 API 的程式
 - [ ] 你知道 HTTP method 有哪些
 - [ ] 你知道基本的 HTTP statud code，像是 200、301、400、404、500
 
