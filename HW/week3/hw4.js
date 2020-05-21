@@ -12,3 +12,4 @@ function Palindrome(str){
 }
 
 module.exports = Palindrome
+
