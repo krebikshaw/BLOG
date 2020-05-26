@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>反應力小遊戲</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<style type="text/css">
+		body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: cloumn;
+			background: #666;
+		}
+		h1 {
+			color: #fff;
+			font-weight: normal;
+			padding: 20px 40px;
+			letter-spacing: 0.3em;
+			text-shadow: 0 0 10px rgba(0,0,0,0,4);
+		}
+		button {
+			color: white;
+			background: rgba(0,0,0,0);
+			padding: 10px 20px;
+			transition: all 0.5s;
+			cursor: pointer;
+			outline: none;
+			border-radius: 3px;
+			border: 2px solid #fff;
+			box-shadow: 0 0 10px 0 rgba(0,0,0,0,1);
+		}
+		button:hover {
+			background: rgba(0,0,0,0.15);
+		}
+		button:focus {
+			outline: none
+		}
+		.scoreBoard {
+			position: fixed;
+			padding: 20px;
+			list-style: none;
+			right: 20px;
+			top: 10px;
+			border-radius: 3px;
+			background: rgba(255, 255, 255, 0.8);
+			color: #333;
+			box-shadow: 0 0 10px rgba(0,0,0,0.2);
+		}
+		.scoreBoard li {
+			font-size: 10px;
+			margin-bottom: 10px;
+		}
+		@media screen and (max-width: 768px) {
+			.scoreBoard {
+				display: none;
+			}
+		}
+	</style>
+</head>
+<body>
+	<ul class="scoreBoard">
+		<h4>成績列表: (秒)</h4>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<h1>畫面變色時請點擊</h1>
+	<script type="text/javascript">
+		const body = document.querySelector('body')
+		const bgColorOrigin = '#666'
+		let scoreArr = []
+		let timeStart = 0
+		let isColorChanged = false
+		let isButtonShow = false
+
+		function updateBgColor() {
+			if(isColorChanged || isButtonShow) return
+			isColorChanged = true;
+			timeStart = new Date()
+			body.style.background = `hs1(${Math.floor(Math.random() * 360)}, 40%, 40%)`
+		}
+
+		function showButton() {
+			if(isButtonShow) return
+			const button = document.createElement('button')
+			button.innerText = '再試一次'
+			body.appendChild(button)
+		}
+
+		function startTicking() {
+			const randomTime = ((Math.random() * 2) + 1) * 1000
+			setTimeout(updateBgColor, randomTime)
+		}
+		startTicking()
+
+		function updateScore(score) {
+			scoreArr.push(score)
+			scoreArr.sort((a, b) => a - b)
+			scoreArr = scoreArr.slice(0, 3)
+			for(let i=0; i<3; i++) {
+				document.querySelectorAll('li')[i].innerText = scoreArr[i] ? scoreArr[i] : ''
+			}
+		}
+
+		function clickAgainBtn() {
+			startTicking()
+			body.removeChild(document.querySelector('button'))
+			body.style.background = bgColorOrigin
+			isColorChanged = false
+			isButtonShow = false
+		}
+
+		function clickBg() {
+			const timeEnd = new Date()
+			if(isButtonShow) return
+			if(isColorChanged) {
+				const score = (timeEnd - timeStart) / 1000
+				updateScore(score)
+				alert(`你的成績: ${score} 秒`)
+			} else {
+				alert('太早按囉')
+			}	
+			showButton(isButtonShow)
+			isButtonShow = true
+		}
+
+		body.onclick = (e) => {
+			if(e.target.nodeName == 'BUTTON'){
+				clickAgainBtn()
+			} else clickBg()
+		}
+		body.onkeydown = (e) => {
+			if(e.keyCode === 32) clickBg()
+			if(e.keyCode === 82 && isButtonShow)
+				clickAgainBtn() 
+		}
+	</script>
+</body>
+</html>
