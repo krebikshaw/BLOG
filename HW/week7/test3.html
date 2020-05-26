@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>超簡單表單驗證</title>
+</head>
+<body>
+	<form>
+		name:<input type="text" class="name"/>
+		<input type="submit" />
+	</form>
+</body>
+<script type="text/javascript">
+	document.querySelector('form').addEventListener('submit', e => {
+		var value = document.querySelector('.name').value
+		if(value === ''){
+			alert('請輸入內容')
+			e.preventDefault()
+		}
+	})
+</script>
+</html>
