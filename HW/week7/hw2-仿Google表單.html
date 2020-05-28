@@ -110,6 +110,9 @@
 			box-shadow: 0px 0px 0px 3px white, 0 0 0px 5px #999;
 			transition: all .5s;
 		}
+/*		
+		box-shadow:投影方式 X軸偏移量 Y軸偏移量 陰影模糊半径 陰影擴展半径 陰影颜色 
+*/
 		.form__item input[type="radio"]:checked + label::before {
 			background: #d93025;
 			box-shadow: 0px 0px 0px 3px white, 0 0 0px 5px #d93025;
@@ -276,32 +279,73 @@
 <script type="text/javascript">
 	const form = document.querySelector('form');
 
-	function setInputBg(inputRead) {
-
-	}
-
+// 要確定這個 input 是不是 radio ，如果不是，就回傳 false ，如果是就再判斷是不是已勾選過。
 	function radioCheck(target) {
-
+		if(target.getAttribute('type') === 'radio'){
+			if(target.checked) return target;
+			return 'empty'
+		}
+		return false
 	}
 
+// radio 預設為未勾，一個一個 input 檢查，是必填但又沒填就寫進 array，radio 必須通通都沒勾才寫進 array 。若是有 input 沒填就輸出 array ，都有填完就輸出 success
 	function submitCheck(e) {
-
+		let isRadioChecked = false;
+		let inputEmptyArr = [];
+		for(let i=0; i<e.target.length; i++){
+			if(!e.target[i].value && e.target[i].hasAttribute('required')) inputEmptyArr.push(e.target[i])
+			let isRadio = radioCheck(e.target[i])
+			if(isRadio==='empty')continue
+			else if(isRadio) isRadioChecked =true
+		}
+		if(!isRadioChecked) inputEmptyArr.push(document.querySelectorAll('input[type="radio"]')[0])
+		return(inputEmptyArr.length>0 || !isRadioChecked)? inputEmptyArr : 'success'
 	}
 
+// submit 監聽，用 submitCheck 檢查，再看要呼叫 submitSuccess 還是 sumbitFail
+	form.addEventListener('submit', (e) => {
+		if(submitCheck(e) === 'success')submitSuccess(e)
+		else submitFail(e)	
+	})
+
+// submit 成功，將 input 的資料一個個 log 出來，文字的部分要撈 name 跟 value ，radio 的部分要撈 name 跟 id，最後要跳出成功訊息
 	function submitSuccess(e) {
-
+		for(let i=0; i<e.target.length; i++){
+			const name = e.target[i].getAttribute('name')
+			const isRadio = radioCheck(e.target[i])
+			if(isRadio==='empty')continue
+			else if(isRadio) console.log(`${name}:${e.target.id}`)
+			else console.log(`${name}:${e.target[i].value}`)
+		}
+		alert('已咻咻咻送出～ 🙆')
 	}
 
+// submit 失敗，呼叫 setInputBg，跳出失敗訊息。一定要記得 preventDefault !不然網頁會重新整理，變色的效果會被移除。
 	function submitFail(e) {
-
+		setInputBg(submitCheck(e))
+		alert('雖然很煩，但還是填完唷！ 🙅‍')
+		e.preventDefault()
 	}
 
-	window.addEventListener('click', (e) => {
+// setInputBg 這個函式有兩種情況會被呼叫 1.submit 失敗時 2.click 螢幕時，有 input 已讀但未填時。若是第一種情況: submit 失敗，會去撈取 array 傳入的 target ，若是第二種情況已讀未填，會去撈取符合 attribute 有 isRead 這個屬性的資料他們的 target (兩種情況傳入的其實都是 target，所以雖然來源不同但是處理方式相同)。都用新增 class 的方式來標記，再用 CSS 去針對這個 class 改變這些 input 的背景顏色。
+	function setInputBg(inputRead) {
+		if(inputRead.length < 1) return
+		for(let i=0; i<inputRead.length; i++){
+			if(inputRead[i].value=='' || inputRead[i].getAttribute('type')=='radio')inputRead[i].parentElement.classList.add('read')
+			else inputRead[i].parentElement.classList.remove('read')
+		}
+	}
 
+// click 監聽，先記憶 click 當下 isRead 的 input 有那些(很重要! 若沒有此刻就記憶，會變成點到任何 input 他就馬上標記並且被 setInputBg 變色)，再來判斷目前點擊的地方，是不是滿足必填且 value 為空值，是得話就加上 isRead 的屬性。呼叫 setInputBg 來改變這些 input 的背景顏色。由於 radio 有點擊就一定是有選取，所以一旦 radio 被點擊，就可以移除掉 radio 的變色標記。
+	window.addEventListener('click', (e) => {
+		const inputRead = document.querySelectorAll('input[data-isRead="true"]')
+		if(e.target.hasAttribute('required') && e.target.value == ''){
+			e.target.setAttribute('data-isRead', 'true')
+		}
+		setInputBg(inputRead)
+		if(e.target.getAttribute('type')=="radio") e.target.parentElement.classList.remove('read')
 	});
 
-	form.addEventListener('submit', (e) => {
-		
-	})
+	
 </script>
 </html>

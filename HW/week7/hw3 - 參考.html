@@ -1,0 +1,273 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Yakim_w7-hw3</title>
+  <style type="text/css">
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      background: lightslategrey;
+      font-family: 'Overpass Mono', monospace;
+    }
+    .main {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .calculator {
+      min-width: 320px;
+      background: #ddd;
+      padding: 10px 0;
+      box-shadow: 0 0 20px 0px rgba(0,0,0,0.1);
+      border-radius: 5px;
+    }
+    .calculator.error {
+      border: 1px solid red;
+    }
+    .calculator h2 {
+      color: #999;
+      font-size: 16px;
+      font-weight: normal;
+      text-align: center;
+      margin: 10px 0;
+    }
+    .row__result {
+        height: 100;
+        padding: 0 15px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-end;
+        background: #666;
+        color: #fff;
+        font-size: 24px;
+        letter-spacing: 0.2em;
+        border-top: 20px solid #1da5a5;
+        border-bottom: 4px solid #e2b156;
+        flex-flow: column nowrap;
+    }
+    .row__result span { 
+      font-size: 13px;
+      color: #999;
+    }
+
+    .list {
+      padding-inline-start: 0;
+      list-style: none;
+      border-top: 1px solid #ddd;
+    }
+
+    .row__key {
+      display: flex;
+      border-bottom: 1px solid #ddd;
+    }
+    .row__key span {
+      display: inline-block;
+      height: 50px;
+      background: #fff;
+      color: #666;
+      justify-content: space-between;
+      flex: 0 0 22%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .row__key span:not(:last-child) {
+      border-right: 1px solid #ddd;
+    }
+    .row__key span:hover {
+        background: #eee;
+        border-bottom: 1px solid #aaa;
+        box-shadow: inset 0 0 0px 1px rgba(255,255,255,0.6);
+    }
+    .row__key .col__1 {
+      flex-grow: 1;
+    }
+    .row__key .col__2 {
+      flex-grow: 9.5;
+    }
+    .row__key .col__3 {
+      flex-grow: 18;
+    }
+
+    .row__key .btn--grey {
+      background: darkcyan;
+      color: #fff;
+    }
+    .row__key .btn--grey:hover {
+      background: #088282;
+      box-shadow: none;
+    }
+    .row__key span:active {
+      background: #ccc;
+    }
+  </style>
+  
+</head>
+<body>
+  <main class="main">
+    <div class="calculator animated fast">
+      <h2>Yakim's calculator</h2>
+      <div class="row__result">
+        <span></span>
+        <strong>0</strong>   
+      </div>
+      <ul class="list">
+        <li class="row__key">
+          <span data-value ="AC" class="col__3">AC</span>
+          <span data-value ="/" class="col__1">/</span>
+        </li>
+        <li class="row__key">
+          <span data-value ="7" class="col__1">7</span>
+          <span data-value ="8" class="col__1">8</span>
+          <span data-value ="9" class="col__1">9</span>
+          <span data-value ="*" class="col__1">*</span>
+        </li>
+        <li class="row__key">
+          <span data-value ="4" class="col__1">4</span>
+          <span data-value ="5" class="col__1">5</span>
+          <span data-value ="6" class="col__1">6</span>
+          <span data-value ="-" class="col__1">-</span>
+        </li>
+        <li class="row__key">
+          <span data-value ="1" class="col__1">1</span>
+          <span data-value ="2" class="col__1">2</span>
+          <span data-value ="3" class="col__1">3</span>
+          <span data-value ="+" class="col__1">+</span>
+        </li>
+        <li class="row__key">
+          <span data-value ="0" class="col__2">0</span>
+          <span data-value ="." class="col__1">.</span>
+          <span data-value ="=" class="col__1 btn--grey">=</span>
+        </li>
+      </ul>
+    </div>
+  </main>
+</body>
+<script type="text/javascript">
+  /* eslint-disable no-use-before-define */
+
+  const inputResultTop = document.querySelector('.row__result span');
+  const inputResult = document.querySelector('.row__result strong');
+  const calculator = document.querySelector('.calculator');
+  const numFixed = 5; // 小數點後 5 位直接刪掉
+
+  const numManage = {
+    numOrigin: '',
+    numResult: '',
+  };
+  const signManage = {
+    calcSignAll: ['+', '-', '*', '/'],
+    calcSignCurrent: '',
+  };
+  const stateManage = {
+    isCalculated: false,
+    isFinish: false,
+    isClickCalc: false,
+  };
+  const funManage = {
+    dataProcess: value => ((value[0] === '0' && value[1] !== '.' && value.length !== 1) ? value.substr(1) : value),
+    calc: (subValue, mainValue) => {
+      if (Number.isNaN(mainValue)) {
+        showResult(showError(['0', '哎呀有臭蟲 🤢']));
+      } else {
+        const result = [funManage.dataProcess(subValue), funManage.dataProcess(mainValue)];
+        if (stateManage.isFinish && mainValue % 1) result[1] = funManage.isFloat(mainValue);
+        [inputResultTop.innerText, inputResult.innerText] = result;
+      }
+    },
+    isFloat: (mainValue) => {
+      const num = mainValue.toString();
+      if (num.split('.')[1].length < numFixed) return mainValue;
+      return Number(num).toFixed(numFixed);
+    },
+    doCalc: (sign, first, sec) => {
+      switch (sign) {
+        case '+':
+          return first + sec;
+        case '-':
+          return first - sec;
+        case '*':
+          return first * sec;
+        case '/':
+          if (sec === 0) {
+            return this.showError('無意義 🧞‍');
+          }
+          return first / sec;
+        default:
+          break;
+      }
+      return false;
+    },
+  };
+
+  // click - 歸零 (AC)
+  function clickReset(msg) {
+    [stateManage.isCalculated, stateManage.isFinish] = [false, false];
+    [numManage.numOrigin, numManage.numResult] = ['', ''];
+    if (msg) return msg;
+    return ['0', '0'];
+  }
+  // click - 等於 (=)
+  function clickResult() {
+    stateManage.isCalculated = false;
+    stateManage.isFinish = true;
+    const arr = numManage.numOrigin.split(signManage.calcSignCurrent);
+    const numFir = Number(arr[0]);
+    const numSec = Number(arr[1].substring(0, arr[1].length - 1));
+    numManage.numResult = funManage.doCalc(signManage.calcSignCurrent, numFir, numSec);
+    return [numManage.numOrigin, numManage.numResult];
+  }
+  // click - 加、減、乘、除 (+、-、*、/)
+  function clickCalc(sign) {
+    signManage.calcSignCurrent = sign;
+    if (numManage.numResult) numManage.numOrigin = numManage.numResult + sign;
+    if (stateManage.isCalculated) return showError(['0', '哎呀有臭蟲 🤢']);
+    stateManage.isCalculated = true;
+    return [numManage.numOrigin, sign];
+  }
+
+  // show 錯誤
+  function showError(msg) {
+    calculator.classList.add('shake');
+    return clickReset(msg);
+  }
+  // show 結果
+  function showResult(arr) {
+    // 判斷是數字鍵、還是符號
+    if (!arr && numManage.numResult) showResult(showError()); // 數字鍵
+    else if (!arr) funManage.calc(numManage.numOrigin, numManage.numOrigin);
+    else funManage.calc(arr[0], arr[1]); // 其他符號
+  }
+  // 已有運算符號的處理，只顯示後來的數字
+  function showMainNum(value) {
+    if (numManage.numResult) {
+      numManage.numOrigin = numManage.numResult + signManage.calcSignCurrent + value;
+      numManage.numResult = '';
+      stateManage.isCalculated = true;
+    }
+    const index = numManage.numOrigin.indexOf(signManage.calcSignCurrent);
+    return [numManage.numOrigin, numManage.numOrigin.substr(index + 1)];
+  }
+
+  calculator.addEventListener('click', (e) => {
+    calculator.classList.remove('shake');
+    const value = e.target.getAttribute('data-value');
+    stateManage.isClickCalc = signManage.calcSignAll.some(sign => value === sign);
+    if (value === null) return;
+
+    numManage.numOrigin += value;
+
+    if (value === 'AC') showResult(clickReset());
+    else if (stateManage.isClickCalc) showResult(clickCalc(value));
+    else if (value === '=') showResult(clickResult());
+    else if (stateManage.isCalculated) showResult(showMainNum(value));
+    else showResult();
+  });
+</script>
+</html>

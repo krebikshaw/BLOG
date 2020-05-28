@@ -309,6 +309,7 @@
     function submitCheck(e) {
       let isRadioChecked = false;
       const inputEmptyArr = [];
+      console.log(e)
       for (let i = 0; i < e.target.length; i += 1) {
         const isRadio = radioCheck(e.target[i]);
         if (!e.target[i].value && e.target[i].hasAttribute('required')) inputEmptyArr.push(e.target[i]);
