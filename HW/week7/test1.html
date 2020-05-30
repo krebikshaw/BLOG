@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>簡單計數器</title>
+</head>
+<body>
+	<h1 class = "count">  <!-- 做出預設顯示為1 -->
+		1
+	</h1>
+	<input type="button" id = "minus" value="-1">  <!-- 做出 +1 -1 的按鈕 -->
+	<input type="button" id = "plus" value="+1">
+</body>
+<script type="text/javascript">
+	var count = 1
+	// 按下 -1 會將 count -1 後代入 function
+	document.querySelector('#minus').addEventListener('click', () => {   
+		changeContentText(--count) 
+	})
+    // 按下 +1 會將 count +1 後代入 function
+	document.querySelector('#plus').addEventListener('click', () => {
+		changeContentText(++count)
+	})
+	// function 會將帶入的值判斷大於 0 還小於 0 ，顯示於畫面上。
+	function changeContentText(number){
+		var contentElement = document.querySelector('.count')
+		contentElement.innerText = number
+		if(number < 0){
+			contentElement.style.color = 'red'
+		} else {
+			contentElement.style.color = 'black'
+		}
+	}
+</script>
+</html>

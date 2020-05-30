@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style type="text/css">
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      background: rgb(248, 237, 230);
+      font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    }
+    .header {
+      height: 270px;
+      background-image: url(https://lh4.googleusercontent.com/sAvtic6WzLRcGC485d2irc6Q36VS9GaiIj2TjL9AkbD1t3RjwacfNkJmmUe9fh9c0WV-ZVKQcw=w1200);
+      background-size: cover;
+      background-position: center;
+    }
+    .main {
+      padding: 0 20px;
+    }
+    .main__inner {
+      max-width: 640px;
+      background: #fff;
+      margin:-100px auto 50px auto;
+      padding: 15px;
+      border-top: 8px solid rgb(255, 137, 75);
+      box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
+    }
+    .summary {
+      padding: 0 20px;
+    }
+    .summary__title {
+      font-size: 30px;
+      font-weight: normal;
+    }
+    .summary p {
+      font-size: 12px;
+    }
+    .summary p a{
+      color: #00e;
+    }
+    .summary__strong {
+      color: #d93025;
+      margin: 20px 0 30px 0;
+    }
+
+    .form ul {
+      list-style: none;
+      padding-inline-start: 0;
+    }
+    .form__item {
+      margin-bottom: 10px;
+      padding: 10px 20px;
+      transition: all .3s;
+    }
+    .form__item.read {
+      background: #fce8e6;
+    }
+    .form__item.read::after {
+      content:"這是必填問題";
+      color: #d93025;
+      font-size: 15px;
+    }
+
+    .form__item input, .form__item h4 {
+      display: block;
+    }
+    .form__item h4 {
+      margin: 0 0 20px 0;
+      font-size: 18px;
+      font-weight: normal;
+    }
+    .form__item[data-check="true"] h4::after {
+      content: '*';
+      color: #d93025;
+      font-size: 22px;
+      margin-left: 5px;
+    }
+    .form__item span {
+      font-size: 12px;
+      position: relative;
+      top: -15px;
+    }
+    .form__item input {
+      margin-bottom:20px;
+      width: 100%;
+      height: 25px;
+      border: none;
+      border-bottom: 1px solid #eee;
+      transition: all .5s;
+      position: relative;
+      background: none;
+      border-radius: 0; /* 修正 safari 自帶圓角 */
+    }
+
+
+    .form__item input[type="radio"] {
+      display: none;
+    }
+    .form__item input[type="radio"] + label::before {
+        content: "";
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        position: absolute;
+        left: 0px;
+        top: 15px;
+        border: 1px solid #fff;
+        box-shadow: 0px 0px 0px 3px white, 0 0 0px 5px #999;
+        transition: all .5s;
+    }
+    .form__item input[type="radio"]:checked + label::before {
+      background: #d93025;
+      box-shadow: 0px 0px 0px 3px white, 0 0 0px 5px #d93025;
+    }
+    .form__item input[type="radio"] + label:hover::before {
+      box-shadow: 0px 0px 0px 3px white, 0 0 0px 5px #d93025, 0 0 0px 15px #ff000029;
+    }
+    .form__item.read input,
+    .form__item input:focus {
+      outline: none;
+      border-bottom: 2px solid #d93025;
+    }
+    .form__item input::placeholder {
+      color: #bbb;
+      font-size: 14px;
+    }
+    .form__item .input--half {
+      width: 60%;
+    }
+
+    .form__item label {
+      display: block;
+        font-size: 15px;
+        line-height: 1.4em;
+        padding-left: 30px;
+        position: relative;
+        margin-bottom: 30px;
+    }
+    .form__item label + input {
+      margin-bottom: 15px;
+    }
+    .form__item input[type="radio"] {
+      width: 60px;
+    }
+
+    .btn-submit {
+      display: inline-block;
+      padding: 10px 30px;
+      background: #1a73e8;
+      color: #fff;
+      font-size: 13px;
+      border-radius: 3px;
+      border: none;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    .btn-submit:hover {
+      background: #1a73e8db;
+    }
+
+    .btn-submit + span {
+      top: 0;
+      display: block;
+      margin-top: 25px;
+      color: #999;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 0 20px 30px;
+    }
+    .footer p {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+    .footer a {
+      font-size: 12px;
+      color: #666;
+    }
+    .footer .url-google-form {
+      font-size: 18px;
+      text-decoration: none;
+      color: #bbb;
+    }
+
+
+
+    /* pad - 660px */
+    @media screen and (max-width: 660px){
+      .header {
+        height: 120px;
+      }
+      .main__inner {
+        margin-top: -50px;
+      }
+      .summary__title {
+        font-size: 34px;
+      }
+    }
+    /* pad - 480px */
+    @media screen and (max-width: 480px){
+      .summary__title {
+        font-size: 25px;
+      }
+      .form__item .input--half {
+        width: 100%;
+      }
+    }
+  </style>
+  
+  <title>Yakim_week7-hw2</title>
+</head>
+
+<body>
+  <header class="header"></header>
+  <main class="main">
+    <div class="main__inner">
+      <section class="summary">
+        <h1 class="summary__title">程式導師實驗計畫第三期報名表單</h1>
+        <p>詳情請參考：<a target="_blank"
+            href="https://medium.com/hulis-blog/mentor-program-3rd-47a2e85e33b3">https://medium.com/hulis-blog/mentor-program-3rd-47a2e85e33b3</a>
+        </p>
+        <p>填完之後請務必按照文章內的說明再寄信給我，才算報名成功喔</p>
+        <p class="summary__strong">*必填</p>
+      </section>
+      <section class="form">
+        <form action="" novalidate>
+          <ul>
+            <li class="form__item" data-check="true">
+              <h4>電子郵件地址</h4>
+              <input type="email" name="email" id="email" class="input--half" placeholder="你的電子郵件" required>
+            </li>
+            <li class="form__item" data-check="true">
+              <h4>暱稱</h4>
+              <span>該如何稱呼你</span>
+              <input type="text" name="nickname" id="nickname" class="input--half" placeholder="你的回答" required>
+            </li>
+            <li class="form__item" data-check="true">
+              <h4>報名類型</h4>
+                <input type="radio" name="classType" id="basic" required>
+                <label for="basic">從零到一基礎班（兩個月後開始收保證金 5000，淘汰不退還，結業後兩個月內找到工作付一個月半薪水，沒工作不用付）</label>
+                <input type="radio" name="classType" id="advanced" required>
+                <label for="advanced">在職工程師加強班（兩個月後開始收保證金 5000，三個月時收學費 35000 元台幣，被淘汰不退還）</label>
+            </li>
+            <li class="form__item" data-check="true">
+              <h4>現在的職業</h4>
+              <span>範例：學生、前端工程師、待業中、業務</span>
+              <input type="text" name="job" id="job" class="input--half" placeholder="你的回答" required>
+            </li>
+            <li class="form__item" data-check="true">
+              <h4>怎麼知道這個計畫的？</h4>
+              <input type="text" name="from" id="from" placeholder="你的回答" required>
+            </li>
+            <li class="form__item" data-check="true">
+              <h4>是否有程式相關背景？</h4>
+              <span>範例：無、高中時候學過C++、學過一點網頁前端、目前在資策會上課...</span>
+              <input type="text" name="experience" id="experience" placeholder="你的回答" required>
+            </li>
+            <li class="form__item">
+              <h4>其他</h4>
+              <span>任何你想說的</span>
+              <input type="text" name="opinion" id="opinion" placeholder="你的回答">
+            </li>
+            <li class="form__item">
+              <button type="submit" class="btn-submit">提交</button>
+              <span>請勿利用 Google 表單送出密碼。</span>
+            </li>
+          </ul>
+        </form>
+      </section>
+    </div>
+  </main>
+  <footer class="footer">
+    <p>Google 並未認可或建立這項內容。
+      <a target="_blank"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSf_VezMf-V20hMDYTNEM0LEkuztIg-ZIsSI9Zy9xLAwGYzxGA/reportabuse?source=https://docs.google.com/forms/d/e/1FAIpQLSf_VezMf-V20hMDYTNEM0LEkuztIg-ZIsSI9Zy9xLAwGYzxGA/viewform">檢舉濫用情形</a>
+      -
+      <a target="_blank" href="http://www.google.com/accounts/TOS">服務條款</a>
+    </p>
+    <a target="_blank" class="url-google-form"
+      href="https://www.google.com/forms/about/?utm_source=product&utm_medium=forms_logo&utm_campaign=forms">Google
+      表單</a>
+  </footer>
+  <script type="text/javascript">
+    const form = document.querySelector('form');
+
+    function setInputBg(inputRead) {
+      if (inputRead.length < 1) return;
+      for (let i = 0; i < inputRead.length; i += 1) {
+        if (inputRead[i].value === '' || inputRead[i].getAttribute('type') === 'radio') inputRead[i].parentElement.classList.add('read');
+        else inputRead[i].parentElement.classList.remove('read');
+      }
+    }
+
+    function radioCheck(target) {
+      if (target.getAttribute('type') === 'radio') {
+        if (target.checked) return target;
+        return 'empty';
+      }
+      return false;
+    }
+
+    function submitCheck(e) {
+      let isRadioChecked = false;
+      const inputEmptyArr = [];
+      console.log(e)
+      for (let i = 0; i < e.target.length; i += 1) {
+        const isRadio = radioCheck(e.target[i]);
+        if (!e.target[i].value && e.target[i].hasAttribute('required')) inputEmptyArr.push(e.target[i]);
+        if (isRadio === 'empty') continue;
+        else if (isRadio) isRadioChecked = true;
+      }
+      if (!isRadioChecked) inputEmptyArr.push(document.querySelectorAll('input[type="radio"]')[0]);
+      return (inputEmptyArr.length > 0 || !isRadioChecked) ? inputEmptyArr : 'Success';
+    }
+
+    function submitSuccess(e) {
+      for (let i = 0; i < e.target.length; i += 1) {
+        const name = e.target[i].getAttribute('name');
+        const isRadio = radioCheck(e.target[i]);
+        if (isRadio === 'empty') continue;
+        else if (isRadio) console.log(`${name} : ${e.target[i].id}`);
+        else console.log(`${name} : ${e.target[i].value}`);
+      }
+      alert('已咻咻咻送出～ 🙆');
+    }
+
+    function submitFail(e) {
+      setInputBg(submitCheck(e));
+      alert('雖然很煩，但還是填完唷！ 🙅‍');
+      e.preventDefault();
+    }
+
+    // click 事件
+    window.addEventListener('click', (e) => {
+      const inputRead = document.querySelectorAll('input[data-isRead="true"]');
+      if (e.target.hasAttribute('required') && e.target.value === '') {
+        e.target.setAttribute('data-isRead', 'true');
+      }
+      setInputBg(inputRead);
+      if (e.target.getAttribute('type') === 'radio') e.target.parentElement.classList.remove('read');
+    });
+
+    // 送出表單前驗證
+    form.addEventListener('submit', (e) => {
+      if (submitCheck(e) === 'Success') submitSuccess(e);
+      else submitFail(e);
+    });
+  </script>
+</body>
+
+</html>

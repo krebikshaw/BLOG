@@ -7,6 +7,8 @@
 參考https://github.com/Lidemy/mentor-program-3rd 
 https://github.com/Lidemy/mentor-program-4th
 
+https://github.com/Lidemy/mentor-program-3rd-yakim-shu/tree/aea7c413016c40b4b61194e25580eac8be54eb0f/homeworks
+
 ### 暖身 (完成日期 2020/04/30)
 
 大致介紹整個計畫以及帶學生看過一次課程大綱，接著說明整體架構，介紹各種不同工程師職位所負責的工作內容並著重在網頁工程師的介紹，並說明課程進行方式。
@@ -194,16 +196,16 @@ HTML 的部分就簡單帶過幾個常見的 tag，帶到 head 的一些屬性�
 
 #### 自我檢測
 
-- [ ] 你知道 HTML 是在做什麼的
-- [ ] 你知道如何使用有語意的（semantic）標籤
-- [ ] 你知道基本 SEO 的概念
-- [ ] 你知道 CSS 是什麼
+- [x] 你知道 HTML 是在做什麼的
+- [x] 你知道如何使用有語意的（semantic）標籤
+- [x] 你知道基本 SEO 的概念
+- [x] 你知道 CSS 是什麼
 - [ ] 你知道 inline、block 跟 inline-block 的區別
-- [ ] 你知道什麼是 box model
+- [x] 你知道什麼是 box model
 - [ ] 你知道 position 的所有屬性及其差別
-- [ ] 你知道 :hover, :before, :after
+- [x] 你知道 :hover, :before, :after
 - [ ] 你知道 :nth-child 的各種用法
-- [ ] 你熟悉 CSS selector，可以輕鬆選到想選到的元素
+- [x] 你熟悉 CSS selector，可以輕鬆選到想選到的元素
 
 ### 前端基礎（二）
 
