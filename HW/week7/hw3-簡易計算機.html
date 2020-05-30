@@ -192,7 +192,7 @@ box-shadow: inset 這邊的陰影是凹進去的!
 				[inputResultTop.innerText, inputResult.innerText] = result
 			}
 		},
-		// 先將算式跟答案兩個部分分別推進 result 陣列裡，再判斷答案的部分是不是小數，最後將算式顯示於 span，將答案顯示於 strong 
+		// 顯示出結果!!先將算式跟答案兩個部分分別推進 result 陣列裡，再判斷答案的部分是不是小數，最後將算式顯示於 span，將答案顯示於 strong 
 		isFloat: (mainValue) => {
 			const num = mainValue.toString();
 			if(num.split('.')[1].length < numFixed) return mainValue;
@@ -231,7 +231,7 @@ box-shadow: inset 這邊的陰影是凹進去的!
 		stateManage.isFinish = true;
 		const arr = numManage.numOrigin.split(signManage.calcSignCurrent);
 		const numFir = Number(arr[0]);
-		const numSec = Number(arr[1].substring(0, arr[1].length - 1));
+		const numSec = Number(arr[1].substring(0, arr[1].length - 1));//把算式的 = 切掉
 		numManage.numResult = funManage.doCalc(signManage.calcSignCurrent, numFir, numSec);
 		return [numManage.numOrigin, numManage.numResult];
 	}
@@ -239,7 +239,7 @@ box-shadow: inset 這邊的陰影是凹進去的!
 	function clickCalc(sign) {
 		signManage.calcSignCurrent = sign;
 		if(numManage.numResult) numManage.numOrigin = numManage.numResult + sign;
-		if(stateManage.isCalculated) return showError('0', '哎呀有臭蟲 🤢');
+		if(stateManage.isCalculated) return showError(['0', '操作太複雜了 🤢']);
 		stateManage.isCalculated = true;
 		return [numManage.numOrigin, sign];
 	}

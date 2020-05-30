@@ -62,4 +62,34 @@
 1. 如果結果數值 numResult 存在，把原始數值 numOrigin，加上符號 sign，再加上現在傳入的值 value，寫入原始數值 numOrigin 裡，並將目前已經點過"運算符號"了 isCalculated 改成 true
 2. 將原始數值字串中的符號 sign 的位置 index 找出來，輸出(原始數值 numOrigin 及 index 後的數值)
 
+## 流程拆解
+1. 點選數字，span 跟 strong 都顯示數字
+2. 點選算符，span 顯示數字加算符， strong 顯示算符
+3. 點選數字，span 顯示數字加算符加數字，strong 顯示算符右邊的數字
+4. 點選等於，span 顯示數字加算符加數字加等號，strong 顯示答案
+
+const numManage = {  數值管理
+	numOrigin: '75-52=',
+	numResult: '23',
+};
+const signManage = {  符號管理
+	calcSignAll: ['+', '-', '* ', '/'],
+	calcSignCurrent: '-',
+};
+const stateManage = {  //狀態管理
+	isCalculated: false,  //已經點過運算符號
+	isFinish: true,
+	isClickCalc: true,
+};
+
+calc:  result = ['75-52=','23'] = [inputResultTop.innerText, inputResult.innerText]
+顯示 75-52=  23
+
+clickResult  arr = ['75','52=']
+
+numFir = 75
+numSec = 52
+
+
+
 
