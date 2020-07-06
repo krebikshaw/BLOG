@@ -83,6 +83,38 @@
 	</main>
 </body>
 <script type="text/javascript">
-	
+	const body = document.querySelector('body')
+	const title = document.querySelector('.title')
+	const button = document.querySelector('.btn')
+	const request = new XMLHttpRequest()
+	const url = "https://dvwhnbka7d.execute-api.us-east-1.amazonaws.com/default/lottery";
+
+	function sendLottryReques() {
+		request.open('Get', url, true);
+		request.onload = () => {
+			if(request.status >= 200 && request.status < 400){
+				const response = JSON.parse(request.responseText);
+				body.className = ""
+				console.log(response)
+			}
+
+			
+			button.textContent = "再抽一次!"
+			button.classList.add("draw-again")
+		}
+		request.onerror = () => {
+			console.log(request.status, request.responseText)
+		};
+		request.send()
+	}
+
+	button.addEventListener('click', (e) => {
+		if(e.target.classList.contains("draw-again")){
+			window.location.reload();
+			button.classList.remove("draw-again");
+		} else {
+			sendLottryReques();
+		}
+	})
 </script>
 </html>

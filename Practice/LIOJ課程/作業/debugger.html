@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		<meta charset="utf-8">
+	</title>
+</head>
+<body>
+	<h1>text</h1>
+	<div class='outer'>
+		<button class='addBtn', data-value='0'>Add</button>
+		<button class='btn', data-value='1'>1</button>
+		<button class='btn', data-value='2'>2</button>
+	</div>
+	<script type="text/javascript">
+		let num = 3
+		document.querySelector('.addBtn').addEventListener('click',function(){
+				const btn = document.createElement('button')
+				btn.setAttribute('data-value',num)
+				btn.innerText = num
+				btn.classList.add('btn')
+				num++
+				document.querySelector('.outer').appendChild(btn)
+			})
+		document.querySelector('.outer').addEventListener('click',function(e){
+				if(e.target.classList.contains('btn')){
+					alert(e.target.getAttribute('data-value'))
+				}
+			})
+	</script>
+</body>
+</html>
