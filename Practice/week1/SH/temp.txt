@@ -1,0 +1,59 @@
+HTTP/1.1 200 OK
+server: GitHub.com
+date: Sun, 14 Jun 2020 14:35:22 GMT
+content-type: application/json; charset=utf-8
+status: 200 OK
+cache-control: public, max-age=60, s-maxage=60
+vary: Accept, Accept-Encoding, Accept, X-Requested-With
+etag: W/"19e3ee5a48e4cc571b9b5091e4c69c65"
+last-modified: Sun, 14 Jun 2020 08:55:15 GMT
+x-github-media-type: github.v3; format=json
+access-control-expose-headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, Deprecation, Sunset
+access-control-allow-origin: *
+strict-transport-security: max-age=31536000; includeSubdomains; preload
+x-frame-options: deny
+x-content-type-options: nosniff
+x-xss-protection: 1; mode=block
+referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
+content-security-policy: default-src 'none'
+X-Ratelimit-Limit: 60
+X-Ratelimit-Remaining: 58
+X-Ratelimit-Reset: 1592148923
+Accept-Ranges: bytes
+Content-Length: 1427
+X-GitHub-Request-Id: 1B10:6FB7:D42CC9:2077F4D:5EE635B5
+
+{
+  "login": "aszx87410",
+  "id": 2755720,
+  "node_id": "MDQ6VXNlcjI3NTU3MjA=",
+  "avatar_url": "https://avatars1.githubusercontent.com/u/2755720?v=4",
+  "gravatar_id": "",
+  "url": "https://api.github.com/users/aszx87410",
+  "html_url": "https://github.com/aszx87410",
+  "followers_url": "https://api.github.com/users/aszx87410/followers",
+  "following_url": "https://api.github.com/users/aszx87410/following{/other_user}",
+  "gists_url": "https://api.github.com/users/aszx87410/gists{/gist_id}",
+  "starred_url": "https://api.github.com/users/aszx87410/starred{/owner}{/repo}",
+  "subscriptions_url": "https://api.github.com/users/aszx87410/subscriptions",
+  "organizations_url": "https://api.github.com/users/aszx87410/orgs",
+  "repos_url": "https://api.github.com/users/aszx87410/repos",
+  "events_url": "https://api.github.com/users/aszx87410/events{/privacy}",
+  "received_events_url": "https://api.github.com/users/aszx87410/received_events",
+  "type": "User",
+  "site_admin": false,
+  "name": "Huli",
+  "company": null,
+  "blog": "https://medium.com/@hulitw",
+  "location": "Taipei, Taiwan",
+  "email": null,
+  "hireable": true,
+  "bio": "Love coding, teaching, and writing. Believe sharing can make the world a better place.",
+  "twitter_username": null,
+  "public_repos": 40,
+  "public_gists": 10,
+  "followers": 770,
+  "following": 3,
+  "created_at": "2012-11-09T02:59:04Z",
+  "updated_at": "2020-06-14T08:55:15Z"
+}
