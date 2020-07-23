@@ -15,7 +15,7 @@ function creatTodo(value) {
   element__li.setAttribute('data-value', `${num}`);
   element__li.innerHTML = `
     <input type="checkbox" id="cb__${num}">
-    <label for="cb__${num}"><span></span>${value}
+    <label for="cb__${num}"><span></span>${escapeHtml(value)}
     <input type="button" class="btn__delete" data-value="${num}">
   `;
   list.appendChild(element__li);
@@ -29,7 +29,7 @@ function creatTodo(value) {
 */
 function deleteTodo(value, checked) {
   if (checked) {
-    const li = document.querySelector(`li[data-value="${escapeHtml(value)}"]`);
+    const li = document.querySelector(`li[data-value="${value}"]`);
     list.removeChild(li);
     count--;
     return;
