@@ -29,12 +29,21 @@ function creatTodo(value) {
 */
 function deleteTodo(value, checked) {
   if (checked) {
-    const li = document.querySelector(`li[data-value="${value}"]`);
+    const li = document.querySelector(`li[data-value="${escapeHtml(value)}"]`);
     list.removeChild(li);
     count--;
     return;
   }
   alert('🙅‍  請先完成事項再刪除唷！');
+}
+
+function escapeHtml(unsafe) {
+  return unsafe
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
 }
 
 keydown.addEventListener('keydown', (e) => {
