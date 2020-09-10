@@ -154,7 +154,7 @@ section > p {
 }
 
 .mail_title {
-  width: 75vw;
+  width: 600px;
   font-size: 12px;
   overflow: hidden;
   white-space: nowrap;
@@ -162,7 +162,7 @@ section > p {
 }
 
 .mail_content p {
-  width: 75vw;
+  width: 600px;
   font-size: 10px;
   overflow: hidden;
   white-space: nowrap;
@@ -193,7 +193,7 @@ footer {
   position: relative;
   display: flex;
   align-items: center;
-  max-width: 80vw;
+  max-width: 600px;
   margin: 10px auto;
   background: #fff;
   border-top: 0.1px solid rgba(0,0,0,0.1);
@@ -257,6 +257,20 @@ footer {
   margin: 10px 0;   
 }
 
+@media (max-width: 768px) {
+  .mail_title {
+    width: 75vw;
+  }
+
+  .mail_content p {
+    width: 75vw;
+  }
+
+  .footer_wrapper {
+    max-width: 80vw;
+  }
+}
+
 @media (max-width: 500px) {
   .mail_title {
     width: 70vw;
@@ -265,7 +279,5 @@ footer {
   .mail_content p {
     width: 70vw;
   }
-
-
 }
 
