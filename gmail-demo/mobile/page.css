@@ -27,11 +27,15 @@ h3, h4, p {
 /* navbar */
 
 nav {
+  width: 768px;
+  position: fixed;
+  background: #fff;
   top: 0;
   height: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 2;
 }
 
 .nav_list {
@@ -208,6 +212,12 @@ section p, section a {
   font-weight: lighter;
   line-height: 2em;
   margin: 20px 25px;
+}
+
+@media (max-width: 768px) {
+  nav {
+    width: 100vw;
+  }
 }
 
 @media (max-width: 500px) {
