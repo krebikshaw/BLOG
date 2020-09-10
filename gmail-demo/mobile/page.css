@@ -20,7 +20,7 @@ h3, h4, p {
 
 .wrapper {
   height: 100%;
-  max-width: 350px;
+  max-width: 768px;
   margin: 10px auto;
 }
 
@@ -106,7 +106,7 @@ nav {
 .mail_title {
   display: flex;
   align-items: center;
-  margin: 30px 10px;
+  margin: 30px 20px;
   line-height: 2em;
 }
 
@@ -154,7 +154,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20px 5px;
+  margin: 20px 20px;
 }
 
 .header_left {
@@ -207,6 +207,20 @@ section p, section a {
   font-size: 10px;
   font-weight: lighter;
   line-height: 2em;
-  margin: 20px 10px;
+  margin: 20px 25px;
+}
+
+@media (max-width: 500px) {
+  .mail_title {
+    margin: 30px 10px;
+  }
+
+  .header {
+    margin: 20px 10px;
+  }
+
+  section p, section a {
+    margin: 20px 15px;
+  }
 }
 
