@@ -13,20 +13,20 @@ li {
 }
 
 h3, h4, p {
-  font-weight: normal;
+  font-weight: lighter;
 }
 
 /* wrapper */
 
-.mobpage_wrapper {
+.wrapper {
   height: 100%;
   max-width: 768px;
-  margin: 60px auto;
+  margin: 10px auto;
 }
 
 /* navbar */
 
-.mobpage_nav {
+nav {
   width: 768px;
   position: fixed;
   background: #fff;
@@ -38,20 +38,20 @@ h3, h4, p {
   z-index: 2;
 }
 
-.mobpage_nav_list {
+.nav_list {
   display: flex;
   align-items: center;
 }
 
-.mobpage_nav_left {
+.nav_left {
   display: flex;
 }
 
-.mobpage_nav_list li {
+.nav_list li {
   display: flex;
 }
 
-.mobpage_back_arrow_logo {
+.back_arrow_logo {
   width: 18px;
   height: 18px;
   background: url('./svg/back-arrow.svg') center/cover no-repeat;
@@ -60,7 +60,7 @@ h3, h4, p {
   margin: 8px 20px;
 }
 
-.mobpage_download_logo {
+.download_logo {
   width: 18px;
   height: 18px;
   background: url('./svg/download.svg') center/cover no-repeat;
@@ -69,7 +69,7 @@ h3, h4, p {
   margin: 8px 20px;
 }
 
-.mobpage_delete_logo {
+.delete_logo {
   width: 18px;
   height: 18px;
   background: url('./svg/delete.svg') center/cover no-repeat;
@@ -78,7 +78,7 @@ h3, h4, p {
   margin: 8px 20px;
 }
 
-.mobpage_mail_logo {
+.mail_logo {
   width: 18px;
   height: 18px;
   background: url('./svg/email.svg') center/cover no-repeat;
@@ -87,7 +87,7 @@ h3, h4, p {
   margin: 8px 20px;
 }
 
-.mobpage_option_logo {
+.option_logo {
   width: 18px;
   height: 18px;
   background: url('./svg/more.svg') center/cover no-repeat;
@@ -96,7 +96,7 @@ h3, h4, p {
   margin: 8px 20px;
 }
 
-.mobpage_back_logo {
+.back_logo {
   width: 18px;
   height: 18px;
   background: url('./svg/back.svg') center/cover no-repeat;
@@ -107,34 +107,34 @@ h3, h4, p {
 
 /* title */
 
-.mobpage_mail_title {
+.mail_title {
   display: flex;
   align-items: center;
   margin: 30px 20px;
   line-height: 2em;
 }
 
-.mobpage_mail_title h3 {
+.mail_title h3 {
   font-weight: normal;
   font-size: 20px;
 }
 
-.mobpage_mail_title_left, .mail_title_right {
+.mail_title_left, .mail_title_right {
   display: flex;
   flex-wrap: wrap;
 }
 
-.mobpage_mail_title_left span {
+.mail_title_left span {
   height: 20px;
   font-size: 10px;
-  font-weight: normal;
+  font-weight: lighter;
   background: #9e9e9e57;
   padding: 0 0.8em;
   line-height: 2em;
   border-radius: 5px;
 }
 
-.mobpage_arrow {
+.arrow {
   min-width: 15px;
   height: 18px;
   background: url('./svg/forward.svg') center/cover no-repeat;
@@ -143,7 +143,7 @@ h3, h4, p {
   margin: 2px 8px;
 }
 
-.mobpage_star {
+.star {
   min-width: 16px;
   height: 16px;
   background: url('./svg/star.svg') center/cover no-repeat;
@@ -154,18 +154,18 @@ h3, h4, p {
 
 /* header */
 
-.mobpage_header {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 20px 20px;
 }
 
-.mobpage_header_left {
+.header_left {
   display: flex;
 }
 
-.mobpage_avatar {
+.avatar {
   min-width: 40px;
   height: 40px;
   background: url('https://ssl.gstatic.com/ui/v1/icons/mail/profile_mask2.png') center/cover no-repeat;
@@ -173,66 +173,63 @@ h3, h4, p {
   border-radius: 50%;  
 }
 
-.mobpage_user_info {
+.user_info {
   display: flex;
   align-items: center;
 }
 
-.mobpage_user_info h4 {
+.user_info h4 {
   font-size: 16px;
   font-weight: 300;
   margin-left: 12px;
 }
 
-.mobpage_user_info span {
+.user_info span {
   font-size: 12px;
-  font-weight: normal;
+  font-weight: lighter;
   margin-left: 5px;
 }
 
-.mobpage_send_to {
+.send_to {
+  font-size: 12px;
+  font-weight: lighter;
   margin-left: 12px;  
 }
 
-.mobpage_send_to p {
-  font-size: 12px;
-  font-weight: lighter;  
-}
-
-.mobpage_header_right ul {
+.header_right ul {
   display: flex;
   align-items: center;
 }
 
-.mobpage_header_right li {
+.header_right li {
   display: flex;
 }
 
 /* section */
 
-.mobpage_section p, .mobpage_section a {
-  font-size: 12px;
-  font-weight: normal;
+section p, section a {
+  font-size: 10px;
+  font-weight: lighter;
   line-height: 2em;
   margin: 20px 25px;
 }
 
 @media (max-width: 768px) {
-  .mobpage_nav {
+  nav {
     width: 100vw;
   }
 }
 
 @media (max-width: 500px) {
-  .mobpage_mail_title {
+  .mail_title {
     margin: 30px 10px;
   }
 
-  .mobpage_header {
+  .header {
     margin: 20px 10px;
   }
 
-  .mobpage_section p, .mobpage_section a {
+  section p, section a {
     margin: 20px 15px;
   }
 }
