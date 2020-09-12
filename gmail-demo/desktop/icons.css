@@ -1,0 +1,282 @@
+.deslist_option_logo {
+  width: 18px;
+  height: 18px;
+  background: url('./svg/option.svg') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.8);
+  margin: 8px 22px;
+}
+
+.deslist_search_logo {
+  width: 18px;
+  height: 18px;
+  background: url('./svg/search.svg') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.8);
+  margin: 8px 20px;
+}
+
+.deslist_questionmark_logo {
+  width: 26px;
+  height: 26px;
+  background: url('./svg/question-circle.svg') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 9px 9px;
+}
+
+.deslist_setting_logo {
+  width: 26px;
+  height: 26px;
+  background: url('./svg/setting.svg') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 9px 9px;
+}
+
+.deslist_dot_logo {
+  width: 24px;
+  height: 24px;
+  background: url('./svg/dialpad.svg') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 9px 9px;  
+}
+
+.deslist_search_logo {
+  width: 18px;
+  height: 18px;
+  background: url('./svg/search.svg') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(1);
+  margin: 9px 20px; 
+}
+
+.deslist_inbox_logo {
+	width: 20px;
+  height: 20px;
+  background: url('https://www.gstatic.com/images/icons/material/system/1x/inbox_gm_googlered600_20dp.png') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.8);
+  margin: 8px 20px; 
+}
+
+
+.deslist_star_logo {
+	width: 20px;
+  height: 20px;
+  background: url('https://www.gstatic.com/images/icons/material/system/1x/grade_black_20dp.png') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px 20px;
+}
+
+.deslist_clock_logo {
+	width: 20px;
+  height: 20px;
+  background: url('https://www.gstatic.com/images/icons/material/system/1x/watch_later_black_20dp.png') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px 20px;
+}
+
+.deslist_triangle_logo {
+	width: 20px;
+  height: 20px;
+  background: url('https://www.gstatic.com/images/icons/material/system/1x/send_black_20dp.png') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px 20px;	
+}
+
+.deslist_paper_logo {
+	width: 20px;
+  height: 20px;
+  background: url('https://www.gstatic.com/images/icons/material/system/1x/insert_drive_file_black_20dp.png') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px 20px;	
+}
+
+.deslist_downarrow_logo {
+	width: 20px;
+  height: 20px;
+  background: url('https://www.gstatic.com/images/icons/material/system/1x/expand_more_black_20dp.png') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px 20px;		
+}
+
+.deslist_video_logo {
+	width: 20px;
+  height: 20px;
+  background: url('https://www.gstatic.com/images/icons/material/system/1x/videocam_black_20dp.png') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px 20px;		
+}
+
+.deslist_keybord_logo {
+	width: 20px;
+  height: 20px;
+  background: url('https://www.gstatic.com/images/icons/material/system/1x/keyboard_black_20dp.png') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px 20px;	
+}
+
+.deslist_plus_logo {
+	min-width: 16px;
+  min-height: 16px;
+  background: url('./svg/plus.svg') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 0 18px;
+}
+
+.deslist_people_logo {
+	min-width: 16px;
+  min-height: 16px;
+  background: url('./svg/user-nurse.svg') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px;
+}
+
+.deslist_message_logo {
+	min-width: 16px;
+  min-height: 16px;
+  background: url('./svg/comment-dots.svg') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px;
+}
+
+.deslist_phone_logo {
+	min-width: 16px;
+  min-height: 16px;
+  background: url('./svg/phone-alt.svg') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px;
+}
+
+
+
+.deslist_triangledown_logo {
+	min-width: 16px;
+  min-height: 16px;
+  background: url('https://www.gstatic.com/images/icons/material/system/1x/arrow_drop_down_black_20dp.png') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px 10px 8px -3px;
+}
+
+.deslist_square_logo {
+	min-width: 16px;
+  min-height: 16px;
+  background: url('./svg/square-full.svg') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px;
+}
+
+.deslist_redo_logo {
+	min-width: 16px;
+  min-height: 16px;
+  background: url('./svg/redo.svg') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px;
+}
+
+.deslist_more_logo {
+	min-width: 16px;
+  min-height: 16px;
+  background: url('./svg/more.svg') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px;
+}
+
+.deslist_arrowleft_logo {
+	min-width: 16px;
+  min-height: 16px;
+  background: url('./svg/angle-left.svg') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px 14px;
+}
+
+.deslist_arrowright_logo {
+	min-width: 16px;
+  min-height: 16px;
+  background: url('./svg/angle-right-b.svg') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px 14px;	
+}
+
+.deslist_calender_logo {
+	width: 20px;
+  height: 20px;
+  background: url("https://www.gstatic.com/companion/icon_assets/calendar_2x.png") center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(1);
+  margin: 18px 0;
+}
+
+.deslist_light_logo {
+	width: 20px;
+  height: 20px;
+  background: url("https://www.gstatic.com/companion/icon_assets/keep_2x.png") center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(1);
+  margin: 18px 0;
+}
+
+.deslist_pen_logo {
+	width: 20px;
+  height: 20px;
+  background: url("https://www.gstatic.com/companion/icon_assets/tasks2_2x.png") center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(1);
+  margin: 18px 0 32px 0;
+}
+
+.deslist_social_logo {
+	width: 18px;
+  height: 18px;
+  background: url('https://www.gstatic.com/images/icons/material/system/1x/people_black_20dp.png') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px 18px; 
+}
+
+.deslist_tag_logo {
+	width: 18px;
+  height: 18px;
+  background: url('https://www.gstatic.com/images/icons/material/system/1x/local_offer_black_20dp.png') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px 18px; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
