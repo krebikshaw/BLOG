@@ -8,7 +8,7 @@
 }
 
 .deslist_search_logo {
-  width: 18px;
+  min-width: 18px;
   height: 18px;
   background: url('./svg/search.svg') center/cover no-repeat;
   cursor: pointer;
@@ -262,7 +262,14 @@
   margin: 8px 18px; 
 }
 
-
+.deslist_star2_logo {
+	min-width: 18px;
+  min-height: 18px;
+  background: url('https://www.gstatic.com/images/icons/material/system/1x/star_border_black_20dp.png') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 6px 10px 6px 4px;	
+}
 
 
 
