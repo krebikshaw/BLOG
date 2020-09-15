@@ -271,17 +271,230 @@
   margin: 6px 10px 6px 4px;	
 }
 
+.despage_back_arrow_logo {
+  width: 18px;
+  height: 18px;
+  background: url('./svg/back-arrow.svg') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.8);
+  margin: 8px 20px;
+}
+
+.despage_download_logo {
+  width: 18px;
+  height: 18px;
+  background: url('./svg/download.svg') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.8);
+  margin: 8px 20px;
+}
+
+.despage_delete_logo {
+  width: 18px;
+  height: 18px;
+  background: url('./svg/delete.svg') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.8);
+  margin: 8px 20px;
+}
+
+.despage_mail_logo {
+  width: 18px;
+  height: 18px;
+  background: url('./svg/email.svg') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.8);
+  margin: 8px 20px;
+}
+
+.despage_option_logo {
+  width: 18px;
+  height: 18px;
+  background: url('./svg/more.svg') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.8);
+  margin: 8px 20px;
+}
+
+.desbpage_back_logo {
+  width: 18px;
+  height: 18px;
+  background: url('./svg/back.svg') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.8);
+  margin: 8px 0;
+}
 
 
+.despage_arrow {
+  min-width: 15px;
+  height: 18px;
+  background: url('./svg/forward.svg') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.8);
+  margin: 2px 8px;
+}
 
+.despage_star {
+  min-width: 16px;
+  height: 16px;
+  background: url('./svg/star.svg') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.8);
+  margin: 8px 20px;
+}
 
+.despage_avatar {
+  min-width: 40px;
+  height: 40px;
+  background: url('https://ssl.gstatic.com/ui/v1/icons/mail/profile_mask2.png') center/cover no-repeat;
+  background-color: #8c8a8a;
+  border-radius: 50%;  
+}
 
+.despage_star_logo {
+  min-width: 18px;
+  height: 18px;
+  background: url('https://www.gstatic.com/images/icons/material/system/1x/star_border_black_20dp.png') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.8);
+  margin: 8px 10px 8px 20px;
+}
 
+.despage_reply_logo {
+  min-width: 18px;
+  height: 18px;
+  background: url('https://www.gstatic.com/images/icons/material/system/1x/reply_black_20dp.png') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px 10px;
+}
 
+.despage_more_logo {
+	min-width: 16px;
+  min-height: 16px;
+  background: url('./svg/more.svg') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px;
+}
 
+.despage_arrowleft_logo {
+	min-width: 16px;
+  min-height: 16px;
+  background: url('./svg/angle-left.svg') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px 14px;
+}
 
+.despage_arrowright_logo {
+	min-width: 16px;
+  min-height: 16px;
+  background: url('./svg/angle-right-b.svg') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px 14px;	
+}
 
+.despage_triangledown_logo {
+	min-width: 16px;
+  min-height: 16px;
+  background: url('https://www.gstatic.com/images/icons/material/system/1x/arrow_drop_down_black_20dp.png') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px 14px 8px 0;	
+}
 
+.despage_download_logo {
+  min-width: 20px;
+  height: 20px;
+  background: url('https://www.gstatic.com/images/icons/material/system/1x/archive_black_20dp.png') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px 10px 8px 20px;	
+}
+
+.despage_report_logo {
+  min-width: 20px;
+  height: 20px;
+  background: url('https://www.gstatic.com/images/icons/material/system/1x/report_black_20dp.png') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px 10px 8px 20px;	
+}
+
+.despage_toilet_logo {
+  min-width: 20px;
+  height: 20px;
+  background: url('https://www.gstatic.com/images/icons/material/system/1x/delete_black_20dp.png') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px 10px 8px 20px;
+}
+
+.despage_letter_logo {
+  min-width: 20px;
+  height: 20px;
+  background: url('https://www.gstatic.com/images/icons/material/system/1x/mark_as_unread_black_20dp.png') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px 10px 8px 20px;
+}
+
+.despage_clock_logo {
+  min-width: 20px;
+  height: 20px;
+  background: url('https://www.gstatic.com/images/icons/material/system/1x/watch_later_black_20dp.png') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px 10px 8px 20px;	
+}
+
+.despage_checkcircle_logo {
+  min-width: 20px;
+  height: 20px;
+  background: url('https://www.gstatic.com/ui/v1/icons/mail/rfr/task_add_filled_20_black_1x.png') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px 10px 8px 20px;	
+}
+
+.despage_filearrow_logo {
+  min-width: 20px;
+  height: 20px;
+  background: url('https://www.gstatic.com/images/icons/material/system/1x/drive_file_move_black_20dp.png') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px 10px 8px 20px;	
+}
+
+.despage_tag_logo {
+  min-width: 20px;
+  height: 20px;
+  background: url('https://www.gstatic.com/images/icons/material/system/1x/label_black_20dp.png') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px 10px 8px 20px;		
+}
+
+.despage_print_logo {
+  min-width: 20px;
+  height: 20px;
+  background: url('https://www.gstatic.com/images/icons/material/system/1x/print_black_20dp.png') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px 10px 8px 20px;
+}
+
+.despage_view_logo {
+  min-width: 20px;
+  height: 20px;
+  background: url('https://www.gstatic.com/images/icons/material/system/1x/open_in_new_black_20dp.png') center/cover no-repeat;
+  cursor: pointer;
+  filter: opacity(0.6);
+  margin: 8px 10px 8px 10px;
+}
 
 
 
