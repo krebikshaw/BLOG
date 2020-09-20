@@ -296,7 +296,7 @@
     }
     
     window.onpopstate = (event) => {
-      changePage(event);
+      changePage(event.state.step);
     }
   </script>
 </body>
