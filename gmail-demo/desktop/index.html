@@ -305,10 +305,6 @@
     window.onpopstate = (event) => {
       changePage(event.state.step);
     };
-
-    window.addEventListener("hashchange", function() {
-      changePage(location.hash)
-    });
   </script>
 </body>
 </html>
