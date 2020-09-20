@@ -286,13 +286,12 @@
       if (str === 'page') {
         $('.deslist_main_html').hide();
         $('.despage_html').show();
-        history.pushState({step: str}, null, 'page');
       }
       if (str === 'list') {
         $('.despage_html').hide();
         $('.deslist_main_html').show();
-        history.pushState({step: str}, null, '');
       }    
+      history.pushState({step: str}, null, str);
     }
     
     window.onpopstate = (event) => {
