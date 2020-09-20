@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="stylesheet" type="text/css" href="./main.css">
   <link rel="stylesheet" type="text/css" href="./icons.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 </head>
 <body>
   <div class="deslist_html">
@@ -136,7 +137,7 @@
                 <p>促銷內容</p>
               </div>
             </div>
-            <ul class="deslist_section_middle_main_list">
+            <ul class="deslist_section_middle_main_list" onclick="changePage('page')">
               <li>
                 <div class="deslist_section_middle_main_list_left">
                   <i class="deslist_square_logo"></i>
@@ -206,7 +207,7 @@
             <nav class="despage_nav">
               <div class="despage_nav_left">
                 <ul class="despage_nav_left_list">
-                  <li><i class="despage_back_arrow_logo"></i></li>
+                  <li><i class="despage_back_arrow_logo" onclick="changePage('list')"></i></li>
                   <li><i class="despage_download_logo"></i></li>
                   <li><i class="despage_report_logo"></i></li>
                   <li class="bd_right"><i class="despage_toilet_logo"></i></li>
@@ -280,21 +281,31 @@
       </div>    
     </div>
   </div>
+  <script>
+    function changePage(str) {
+      if (str === 'page') {
+        $('.deslist_main_html').hide();
+        $('.despage_html').show();
+      }
+      if (str === 'list') {
+        $('.despage_html').hide();
+        $('.deslist_main_html').show();
+      }
+
+      history.pushState(null, null, str)
+    }
+    /*
+    $('.deslist_section_middle_main_list').click(() => {
+      
+    })
+
+    $('.despage_back_arrow_logo').click(() => {
+      
+    })
+    */
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
