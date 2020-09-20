@@ -282,6 +282,12 @@
     </div>
   </div>
   <script>
+    if (location.href.indexOf('/list') >=0 ) {
+      changePage('list');
+    } else if (location.href.indexOf('/page') >= 0) {
+      changePage('page');
+    }
+
     function changePage(str) {
       if (str === 'page') {
         $('.deslist_main_html').hide();
@@ -298,7 +304,11 @@
 
     window.onpopstate = (event) => {
       changePage(event.state.step);
-    }
+    };
+
+    window.addEventListener("hashchange", function() {
+      changePage(location.hash)
+    });
   </script>
 </body>
 </html>
