@@ -19,7 +19,7 @@
       </header>
       <section class="moblist_section">
         <p>收件匣</p>
-        <ul class="moblist_mail_list">
+        <ul class="moblist_mail_list" onclick="changePage('page')">
           <li id="1">
             <div class="moblist_mail_avatar"></div>
             <div class="moblist_mail_right">
@@ -126,7 +126,7 @@
     <div class="mobpage_wrapper">
       <nav class="mobpage_nav">
         <div class="mobpage_nav_left">
-          <i class="mobpage_back_arrow_logo"></i>
+          <i class="mobpage_back_arrow_logo" onclick="changePage('list')"></i>
         </div>
         <div class="mobpage_nav_right">
           <ul class="mobpage_nav_list">
@@ -179,6 +179,7 @@
     </div>
   </div>
   <script>
+    /*
     $('.moblist_mail_list').click(() => {
       $('.mobpage_html').removeClass('right-move-out');
       $('.moblist_html').removeClass('left-move-in');
@@ -192,7 +193,29 @@
       $('.mobpage_html').addClass('right-move-out');
       $('.moblist_html').addClass('left-move-in');
     });
-    
+    */
+
+    function changePage(str) {
+      if (str === 'page') {
+        $('.mobpage_html').removeClass('right-move-out');
+        $('.moblist_html').removeClass('left-move-in');
+        $('.mobpage_html').addClass('right-move-in');
+        $('.moblist_html').addClass('left-move-out');
+      }
+      if (str === 'list') {
+        $('.mobpage_html').removeClass('right-move-in');
+        $('.moblist_html').removeClass('left-move-out');
+        $('.mobpage_html').addClass('right-move-out');
+        $('.moblist_html').addClass('left-move-in');
+      }    
+      history.pushState({step: str}, null, `#${str}`);
+    }
+
+    changePage('list');
+
+    window.onpopstate = (event) => {
+      changePage(event.state.step);
+    };
   </script>
 </body>
 </html>
