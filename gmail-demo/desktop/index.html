@@ -292,17 +292,12 @@
         $('.deslist_main_html').show();
       }
 
-      history.pushState(null, null, str)
+      history.pushState({step: str}, null, str)
     }
-    /*
-    $('.deslist_section_middle_main_list').click(() => {
-      
-    })
-
-    $('.despage_back_arrow_logo').click(() => {
-      
-    })
-    */
+    
+    window.onpopstate = (event) => {
+      console.log(event.state);
+    }
   </script>
 </body>
 </html>
