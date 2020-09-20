@@ -286,17 +286,16 @@
       if (str === 'page') {
         $('.deslist_main_html').hide();
         $('.despage_html').show();
+        history.pushState({step: str}, null, 'page');
       }
       if (str === 'list') {
         $('.despage_html').hide();
         $('.deslist_main_html').show();
-      }
-
-      history.pushState({step: str}, null, str)
+        history.pushState({step: str}, null, '');
+      }    
     }
     
     window.onpopstate = (event) => {
-      if (!event.state.step) changePage('list');
       changePage(event.state.step);
     }
   </script>
