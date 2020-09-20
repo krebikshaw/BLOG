@@ -296,7 +296,10 @@
     }
     
     window.onpopstate = (event) => {
-      console.log(event.state);
+      if (event.state.step === 'list') {
+        $('.despage_html').hide();
+        $('.deslist_main_html').show();
+      }
     }
   </script>
 </body>
