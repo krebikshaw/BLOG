@@ -179,21 +179,6 @@
     </div>
   </div>
   <script>
-    /*
-    $('.moblist_mail_list').click(() => {
-      $('.mobpage_html').removeClass('right-move-out');
-      $('.moblist_html').removeClass('left-move-in');
-      $('.mobpage_html').addClass('right-move-in');
-      $('.moblist_html').addClass('left-move-out');
-    });
-
-    $('.mobpage_back_arrow_logo').click(() => {
-      $('.mobpage_html').removeClass('right-move-in');
-      $('.moblist_html').removeClass('left-move-out');
-      $('.mobpage_html').addClass('right-move-out');
-      $('.moblist_html').addClass('left-move-in');
-    });
-    */
 
     function changePage(str) {
       if (str === 'page') {
@@ -211,7 +196,7 @@
       history.pushState({step: str}, null, `#${str}`);
     }
 
-    changePage('list');
+    history.pushState({step: 'list'}, null, `#list`);
 
     window.onpopstate = (event) => {
       changePage(event.state.step);
